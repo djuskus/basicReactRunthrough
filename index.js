@@ -20,7 +20,7 @@ const port = 3000;
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 // 4. Connect to MongoDB
-(0, mongoose_1.connect)("mongodb://localhost:27017/vanilla");
+(0, mongoose_1.connect)("mongodb://127.0.0.1:27017/vanilla");
 app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     return res.status(200).send({
         message: "Hello World!",

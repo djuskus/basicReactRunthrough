@@ -8,11 +8,11 @@ const port = 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'http://127.0.0.1:3000'
 }));
 
 // 4. Connect to MongoDB
-connect("mongodb://localhost:27017/vanilla");
+connect("mongodb://127.0.0.1:27017/vanilla");
 
 app.get("/", async (req: Request, res: Response): Promise<Response> => {
   let messages = await getAllMessages();

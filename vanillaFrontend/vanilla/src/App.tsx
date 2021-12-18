@@ -7,18 +7,18 @@ function App() {
   const [strang, setStrang] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000')
+    fetch('http://127.0.0.1:5000')
       .then(response => response.json())
       .then(responseJson => {setStrang(responseJson)})
   });
 
   const DeleteEm = () => {
-    fetch('http://localhost:5000/delete')
+    fetch('http://127.0.0.1:5000/delete')
     setText("")
   };
 
   const addOne = (text:String) => {
-    fetch('http://localhost:5000', {
+    fetch('http://127.0.0.1:5000', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: text })
