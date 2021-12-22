@@ -7,26 +7,26 @@ function App() {
   const [strang, setStrang] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000")
+    fetch("http://localhost:5000")
       .then((response) => response.json())
       .then((responseJson) => {
         setStrang(responseJson);
       });
-  });
+  }, [text]);
 
   const DeleteEm = () => {
-    fetch("http://127.0.0.1:5000/delete");
+    fetch("http://localhost:5000/delete");
     setText("");
   };
 
   const testApiCall = () => {
     fetch(
-      "https://movie-database-imdb-alternative.p.rapidapi.com/?s=Avengers%20Endgame&r=json&page=1",
+      "https://api.bittrex.com/v3/markets      ",
       {
         method: "GET",
         headers: {
-          "x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com",
-          "x-rapidapi-key": "SIGN-UP-FOR-KEY",
+          "Accept": "text/html, application/xhtml+xml, application/xml;q=0.9",
+          "Access-Control-Allow-Origin": "https://api.bittrex.com/v3/markets"
         },
       }
     )
@@ -39,11 +39,16 @@ function App() {
   };
 
   const addOne = (text: String) => {
-    fetch("http://127.0.0.1:5000", {
+    fetch("http://localhost:5000", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: text }),
     });
+    fetch("http://localhost:5000")
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setStrang(responseJson);
+      });
   };
 
   const strangList = (
